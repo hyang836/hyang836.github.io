@@ -2,17 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homework 3</title>
+    <title>MyBiz</title>
     <link rel="stylesheet" href="uioo.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 </head>
 <body>
     <header>
         <div>
             <span class="Menu">MENU</span>
             <div class="header_right">
-                <a href="qwexcz.html" class="About">About</a>
-                <a href="qwexcz.html" class="Projects">Projects</a>
-                <a href="qwexcz.html" class="Services">Services</a>
+                <a href="qwexcz.html" target="_blank" class="About">About</a>
+                <a href="qwexcz.html" target="_blank" class="Projects">Projects</a>
+                <a href="qwexcz.html" target="_blank" class="Services">Services</a>
             </div>
         </div>
     </header>
@@ -21,7 +22,7 @@
         <div class="container">
             <table class="table">
                 <div class="table_inner">
-                    <tr><td>DON'T WAIT</td></tr>
+                    <tr id="wait"><td><span>DON'T WAIT</span></td></tr>
                     <tr id="IMPROVE">
                         <td>
                             IMPROVE<br>
@@ -29,11 +30,11 @@
                             TODAY!
                         </td>
                     </tr>
-                    <tr id="GET"><td>- Get your hands on Biz Optima -</td></tr>
+                    <tr id="GET"><td>- Get your hands on MyBiz -</td></tr>
                     <tr>
                         <td>
                         <form id="form">
-                            <input id="email" type="email" placeholder="Email"><br>
+                            <input id="email" type="email"><br>
                             <input id="button" type="button" value="SIGN UP FOR FREE!">
                         </form>
                         </td>
@@ -44,42 +45,50 @@
     </div>
     <div class="flex-container">
         <div class="flex_container_one">
-            <span>AMAZING FEATURE #1</span>
+            <span class="amazing">AMAZING FEATURE #1</span>
             <div class="flex_content_one">
-                <p>Lorem ipsum dolor sit amet. Suspendisse nec eros ut erat facilisis maximus.
-                Consectetur adipiscng elit. Sed malesuada faucibus ex nec ultricies. Donec
-                mattis egestas nisi non pretium. Vestibulum sit amet ornare, commodo orci
-                ut, feugat lorem. In congue et leo in varius.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed malesuada faucibus ex nec ultricies. Doniec mattis egestas
+                    nisi non pretium. Suspendisse nec eros ut erat  facilisis maximus.
+                    In congue et leo in varius. <br> Vestibulum sit amet felis ornare, commodo
+                    orci ut,  feugiat lorem</p>
             </div>
         </div>
         <div class="flex_container_two">
-            <span>AMAZING FEATURE #2</span>
+            <span class="amazing" id="second">AMAZING FEATURE #2</span>
             <div class="flex_content_two">
-                <p>Lorem ipsum dolor sit amet. Suspendisse nec eros ut erat facilisis maximus.
-                    Consectetur adipiscng elit. Sed malesuada faucibus ex nec ultricies. Donec
-                    mattis egestas nisi non pretium. Vestibulum sit amet ornare, commodo orci
-                    ut, feugat lorem. In congue et leo in varius.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed malesuada faucibus ex nec ultricies. Doniec mattis egestas
+                    nisi non pretium. Suspendisse nec eros ut erat  facilisis maximus.
+                    In congue et leo in varius. <br> Vestibulum sit amet felis ornare, commodo
+                    orci ut,  feugiat lorem</p>
             </div>
         </div>
         <div class="flex_container_three">
-            <span>AMAZING FEATURE #3</span>
+            <span class="amazing">AMAZING FEATURE #3</span>
             <div class="flex_content_three">
-                <p>Lorem ipsum dolor sit amet. Suspendisse nec eros ut erat facilisis maximus.
-                    Consectetur adipiscng elit. Sed malesuada faucibus ex nec ultricies. Donec
-                    mattis egestas nisi non pretium. Vestibulum sit amet ornare, commodo orci
-                    ut, feugat lorem. In congue et leo in varius.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed malesuada faucibus ex nec ultricies. Doniec mattis egestas
+                    nisi non pretium. Suspendisse nec eros ut erat  facilisis maximus.
+                    In congue et leo in varius. <br> Vestibulum sit amet felis ornare, commodo
+                    orci ut,  feugiat lorem</p>
             </div>
         </div>
     </div>
     <div class="quote">
         <p id="p1">"I COULDN'T HAVE ASKED FOR MORE THAN THIS. BIZ OPTIMA IS THE NEXT KILLER APP."</p>
-        <p id="p2"><b>John Doe</b>, CEO & Founder, Biz Optima</p>
+        <p id="p2"> <span style="color: black">John Doe</span>, CEO & Founder, MyBiz</p>
     </div>
-    <div class="glass">
+    <div>
+        <div class="glass">
+        </div>
         <div class="overlay">
+            <input class="buy1" type="button" value="BUY NOW">
+            <input class="buy2" type="button" value="BUY NOW">
+            <input class="buy3" type="button" value="BUY NOW">
             <div class="top">
-                <span id="price">PRICES</span><br>
-                <span id="afford">AFFORDABLE FOR EVERYONE</span>
+                <p id="price">PRICES</p>
+                <p id="afford">AFFORDABLE FOR EVERYONE</p>
             </div>
             <div class="one">
                 <div class="plan">BASIC PLAN</div>
@@ -91,11 +100,11 @@
                     <div class="money">
                         <div>$29.99<br>Monthly</div>
                     </div>
-                    <input class="buy" type="button" value="BUY NOW">
+                    <input class="buy buy3" type="button" value="BUY NOW">
                 </div>
             </div>
             <div class="two">
-                <div class="plan">BASIC PLAN</div>
+                <div class="plan">STANDART PLAN</div>
                 <div class="plan_number">
                     <span>Plan Amazing feature #1</span><br>
                     <span>Plan Amazing feature #2</span><br>
@@ -104,11 +113,11 @@
                     <div class="money">
                         <div>$39.99<br>Monthly</div>
                     </div>
-                    <input class="buy" type="button" value="BUY NOW">
+                    <input class="buy buy3" type="button" value="BUY NOW">
                 </div>
             </div>
             <div class="three">
-                <div class="plan">BASIC PLAN</div>
+                <div class="plan">CORPORATE PLAN</div>
                 <div class="plan_number">
                     <span>Plan Amazing feature #1</span><br>
                     <span>Plan Amazing feature #2</span><br>
@@ -117,7 +126,7 @@
                     <div class="money">
                         <div>$49.99<br>Monthly</div>
                     </div>
-                    <input class="buy" type="button" value="BUY NOW">
+                    <input class="buy buy3" type="button" value="BUY NOW">
                 </div>
             </div>
         </div>
@@ -131,7 +140,7 @@
     </div>
     <div class="end">
         <div class="address">
-            <p id="p5">BIZ OPTIMA</p>
+            <p id="p5">MyBIZ</p>
             <p id="p6">224 Grand Ave, Redono Beach, CA, 90278 310.555.1212 Ext. 3 for Business Needs</p>
             <div class="photo">
                 <a href="https://www.facebook.com" target="_blank"><img src="https://csci571.com/hw/hw3/images/facebook.png"></a>
