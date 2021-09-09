@@ -1,20 +1,23 @@
 body{
     margin: 0;
     overflow-x: hidden;
+    font-family: Montserrat;
 }
 .Menu{
-    font-size: small;
+    font-size: large;
     display: block;
     float: left;
-    margin: 1.35% 0.65%;
-    padding-left: 10pc;
+    margin: 3% 1%;
+    padding-left: 8pc;
 }
 .header_right{
     display: block;
     float: right;
-    margin: 1.35% 0.65%;
-    padding-right: 10pc;
+    margin: 3% 1%;
+    padding-right: 6pc;
     word-spacing: 2pc;
+    font-size: 15px;
+    font-family: Arial;
 }
 .header_right a{
     text-decoration: none;
@@ -22,181 +25,329 @@ body{
     word-spacing: 2pc;
 }
 .lawyer img{
-    height: 35pc;
-    width: 107%;
+    width: 100%;
     object-fit: cover;
+    filter: brightness(80%);
 }
 .container{
-    width: 23pc;
-    height: 26pc;
+    width: 28pc;
+    height: 32pc;
     color: white;
     position: absolute;
-    top: 145px; left: 130px;
+    top: 255px;
+    left: 115px;
     background-color: #073b5e;
 }
 .table{
-    margin-left: 3pc;
-    margin-top: 3pc;
+    margin-left: 3.5pc;
+    margin-top: 4pc;
+}
+#wait{
+    display: block;
+    font-size: 15px;
 }
 #IMPROVE{
-    font-size: xx-large;
+    display: block;
+    font-size: 40px;
+    line-height: 1em;
 }
 #GET{
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
     font-style: oblique;
+    font-family: Arial;
     color: #fbdf00;
+    letter-spacing: -0.04em;
+    margin-top:15px;
+    margin-bottom: 15px;
 }
 #email{
-    height: 40px;
-    width: 16pc;
-    margin-top: 1pc;
+    display: block;
+    height: 50px;
+    width: 20pc;
+    margin-top: 0.5pc;
     padding: 1px 2px;
-}
-input::-webkit-input-placeholder{
-    font-size: large;
+    border: 0;
 }
 #button{
-    height: 40px;
-    width: 165px;
+    font-size: 12px;
+    height: 50px;
+    width: 185px;
     margin-top: 1pc;
     padding: 1px 6px;
     background-color: #fbdf00;
-    font-size: medium;
     border: none;
-    text-align: left;
+    text-align: center;
+    font-family: Montserrat;
 }
 .flex-container{
     display: flex;
-    padding: 5pc 1rem 1rem 1rem;
+    padding: 8.5pc 1rem 9.5pc 1rem;
     text-align: left;
 }
+.amazing{
+    letter-spacing: -0.06em;
+    font-weight: bold;
+    font-size: 16px;
+}
+#second{
+    padding-right: 90px;
+    padding-left: 60px;
+}
 .flex_container_one{
-    padding-left: 2pc;
+    padding-left: 8pc;
 }
 .flex_content_one p{
-    margin: 0;
+    font-size: 14px;
+    margin-top: 12px;
     color: grey;
-    padding-top: 1pc;
+    width: 340px;
+    height: 120px;
+    padding-top: 0.5pc;
     padding-right: 2pc;
+    font-weight: bold;
+    line-height: 25px;
+    font-family: Arial;
+    letter-spacing: -0.04em;
 }
 .flex_content_two p{
-    margin: 0;
+    font-size: 14px;
+    margin-top: 12px;
     color: grey;
-    padding-top: 1pc;
-    padding-right: 2pc;
+    width: 340px;
+    height: 120px;
+    padding-top: 0.5pc;
+    padding-right: 90px;
+    padding-left: 60px;
+    font-weight: bold;
+    line-height: 25px;
+    font-family: Arial;
+    letter-spacing: -0.04em;
 }
 .flex_content_three p{
-    margin: 0;
+    font-size: 14px;
+    margin-top: 12px;
     color: grey;
-    padding-top: 1pc;
-    padding-right: 2pc;
+    width: 340px;
+    height: 120px;
+    padding-top: 0.5pc;
+    padding-right: 200px;
+    font-weight: bold;
+    line-height: 25px;
+    font-family: Arial;
+    letter-spacing: -0.04em;
 }
 .quote{
     width: 100%;
-    height: 22pc;
+    height: 420px;
     text-align: center;
     background-color: #f4f4f4;
 }
 #p1{
+    font-size: 20px;
     padding-top: 10pc;
     margin: 0;
-    color: grey;
+    color: black;
 }
 #p2{
+    margin: 20px;
     color: grey;
-    margin: 0;
-    font-size: small;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
     padding-bottom: 10pc;
 }
 .glass{
-    background: url("https://csci571.com/hw/hw3/images/glasses.png") no-repeat center fixed;
+    background: url("https://csci571.com/hw/hw3/images/glasses.png") no-repeat  fixed  -320px -5px;
     background-size: 150%;
-    height: 48pc;
+    height: 990px;
+    opacity: 0.3;
+    filter: grayscale(100%);
 }
 .overlay{
-    background-color: #dedede;
-    opacity: 0.9;
-    height: 100%;
+    position: absolute;
+    height: 990px;
     width: 100%;
+    top: 1870px;
     text-align: center;
     vertical-align: middle;
 }
 .top{
-    padding-top: 5pc;
+    padding-top: 3pc;
     text-align: center;
-    font-size: large;
-    opacity: 0.8;
+    color: black;
+}
+#price{
+    font-size: 23px;
+    font-weight: bold;
+    color: black;
 }
 #afford{
-    color: #afbac4;
+    margin-top: 10px;
+    color: rgb(161,161,161);
+    font-size: 15px;
+    font-weight: bold;
 }
-.one, .two, .three{
-    background: url("https://csci571.com/hw/hw3/images/grid.png") white;
+.one{
+    background: url("https://csci571.com/hw/hw3/images/grid.png");
     display: inline-block;
-    width: 22.33%;
-    margin-top: 6pc;
-    margin-right: 7pc;
-    height: 481px;
+    width: 390px;
+    margin-top: 5pc;
+    margin-right: 40px;
+    height: 650px;
+}
+.two{
+    background: url("https://csci571.com/hw/hw3/images/grid.png");
+    display: inline-block;
+    width: 390px;
+    margin-top: 5pc;
+    margin-right: 40px;
+    height: 650px;
+}
+.three{
+    background: url("https://csci571.com/hw/hw3/images/grid.png") white center repeat;
+    display: inline-block;
+    margin-top: 5pc;
+    margin-right: 40px;
+    height: 650px;
+    width: 390px;
 }
 .plan{
-    padding-top: 50px;
+    padding-top: 60px;
     width: 100%;
     line-height: 4;
     vertical-align: middle;
     background-color: white;
     opacity: 0.9;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: -0.06em;
 }
 .plan_number{
     background-color: white;
-    opacity: 0.8;
-    line-height: 2.2;
+    opacity: 0.9;
+    line-height: 2.6em;
+    height: 520px;
+    font-weight: bold;
+    color: rgb(119,119,119);
+    font-size: 15px;
 }
 .money{
-    font-size: x-large;
-    padding-top: 51px;
-    line-height: 1;
+    background-color: white;
+    font-size: 34px;
+    font-family: Arial;
+    padding-top: 20px;
+    line-height: 40px;
+    margin-bottom: 25px;
+    color: black;
+    font-weight: normal;
 }
 .buy{
-    background-color: #032f4e;
-    height: 45px;
-    width: 8pc;
-    margin-top: 1pc;
+    background-color: rgb(15, 61, 92);
     color: white;
+    height: 75px;
+    width: 180px;
+    margin-top: 1pc;
     margin-bottom: 2pc;
+    border: 0;
+    font-size: 16px;
+    font-family: Montserrat;
+
+}
+.buy1{
+    background-color: rgb(15, 61, 92);
+    color: white;
+    height: 75px;
+    width: 180px;
+    margin-top: 1pc;
+    margin-bottom: 2pc;
+    border: 0;
+    font-size: 16px;
+    font-family: Montserrat;
+    font-weight: bold;
+    position: absolute;
+    top: 690px;
+    left: 218px;
+    z-index: 100;
+    letter-spacing: 0.1em;
+}
+.buy2{
+    background-color: rgb(15, 61, 92);
+    color: white;
+    height: 75px;
+    width: 180px;
+    margin-top: 1pc;
+    margin-bottom: 2pc;
+    border: 0;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Montserrat;
+    position: absolute;
+    top: 690px;
+    left: 652px;
+    z-index: 100;
+    letter-spacing: 0.1em;
+}
+.buy3{
+    background-color: rgb(15, 61, 92);
+    color: white;
+    height: 75px;
+    width: 180px;
+    letter-spacing: 0.1em;
+    margin-top: 1pc;
+    margin-bottom: 2pc;
+    border: 0;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: Montserrat;
+    position: absolute;
+    top: 690px;
+    left: 1085px;
+    z-index: 100;
 }
 .notebook{
     background: url("https://csci571.com/hw/hw3/images/notebook.jpg") no-repeat center;
-    height: 29.8pc;
+    height: 600px;
     background-size: 150%;
 }
 .free{
     background-color: #083a5e;
-    height: 29.8pc;
+    height: 600px;
     width: 100pc;
-    opacity: 0.8;
+    opacity: 0.9;
     text-align: center;
     vertical-align: middle;
     display: table-cell;
     color: white;
 }
 #p3{
-    font-size: x-large;
-    margin: 0;
+    font-size: 27px;
+    font-weight: bold;
+    font-family: Montserrat;
+    color: white;
 }
 #p4{
-    margin: 0;
-    font-size: small;
+    margin: -10px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Arial;
+    letter-spacing: -0.04em;
+    word-spacing: -0.09em;
+    color: white;
 }
 .button{
     background-color: #fbdf00;
-    height: 40px;
+    height: 60px;
     border: none;
     text-align: center;
-    width: 165px;
-    font-size: medium;
-    margin-top: 1pc;
+    width: 225px;
+    font-size: 17px;
+    font-family: Montserrat;
+    margin-top: 40px;
 }
 .end{
-    background-color: black;
+    background-color: rgb(28, 36, 47);
     height: 20pc;
     text-align: center;
     vertical-align: middle;
