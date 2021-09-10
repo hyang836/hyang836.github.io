@@ -1,22 +1,25 @@
 body{
     margin: 0;
-    overflow-x: hidden;
     font-family: Montserrat;
 }
+.pos0{
+    position: relative;
+    height: 175px;
+    width: 1900px;
+}
 .Menu{
-    font-size: large;
-    display: block;
-    float: left;
-    margin: 3% 1%;
-    padding-left: 8pc;
+    position: absolute;
+    display: inline-block;
+    font-size: 22px;
+    margin: 70px 170px;
 }
 .header_right{
-    display: block;
-    float: right;
-    margin: 3% 1%;
-    padding-right: 6pc;
+    position: absolute;
+    display: inline-block;
+    margin-top: 70px;
+    padding-left: 1480px;
     word-spacing: 2pc;
-    font-size: 15px;
+    font-size: 22px;
     font-family: Arial;
 }
 .header_right a{
@@ -25,55 +28,56 @@ body{
     word-spacing: 2pc;
 }
 .lawyer img{
-    width: 100%;
-    object-fit: cover;
+    width: 1900px;
+    height: 1000px;
     filter: brightness(80%);
 }
 .container{
-    width: 28pc;
-    height: 32pc;
+    width: 528px;
+    height: 614px;
     color: white;
     position: absolute;
-    top: 255px;
-    left: 115px;
+    top: 365px;
+    left: 150px;
     background-color: #073b5e;
 }
 .table{
-    margin-left: 3.5pc;
-    margin-top: 4pc;
+    margin-left: 60px;
+    margin-top: 72px;
 }
 #wait{
     display: block;
-    font-size: 15px;
+    font-size: 18px;
 }
 #IMPROVE{
     display: block;
-    font-size: 40px;
+    font-size: 54px;
     line-height: 1em;
+    letter-spacing: -3px;
 }
 #GET{
     display: block;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     font-style: oblique;
     font-family: Arial;
     color: #fbdf00;
-    letter-spacing: -0.04em;
-    margin-top:15px;
+    letter-spacing: -0.03em;
+    margin-top:22px;
     margin-bottom: 15px;
 }
 #email{
     display: block;
-    height: 50px;
-    width: 20pc;
+    height: 70px;
+    width: 410px;
     margin-top: 0.5pc;
     padding: 1px 2px;
     border: 0;
 }
 #button{
-    font-size: 12px;
-    height: 50px;
-    width: 185px;
+    font-size: 18px;
+    height: 70px;
+    width: 250px;
     margin-top: 1pc;
     padding: 1px 6px;
     background-color: #fbdf00;
@@ -83,80 +87,62 @@ body{
 }
 .flex-container{
     display: flex;
-    padding: 8.5pc 1rem 9.5pc 1rem;
+    justify-content: center;
+    width: 1900px;
+    height: 270px;
     text-align: left;
+    margin-top: 200px;
+    margin-bottom: 170px;
 }
 .amazing{
     letter-spacing: -0.06em;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 21px;
 }
-#second{
-    padding-right: 90px;
-    padding-left: 60px;
+.a2, .a3{
+    margin-left: 100px;
 }
-.flex_container_one{
-    padding-left: 8pc;
+.flex_container_one, .flex_content_two, .flex_content_three{
+    width: 450px;
+    margin-left: 100px;
 }
-.flex_content_one p{
-    font-size: 14px;
+.flex_content_one p, .flex_content_two p, .flex_content_three p{
+    font-size: 18px;
     margin-top: 12px;
     color: grey;
-    width: 340px;
     height: 120px;
     padding-top: 0.5pc;
     padding-right: 2pc;
     font-weight: bold;
-    line-height: 25px;
+    line-height: 30px;
     font-family: Arial;
-    letter-spacing: -0.04em;
-}
-.flex_content_two p{
-    font-size: 14px;
-    margin-top: 12px;
-    color: grey;
-    width: 340px;
-    height: 120px;
-    padding-top: 0.5pc;
-    padding-right: 90px;
-    padding-left: 60px;
-    font-weight: bold;
-    line-height: 25px;
-    font-family: Arial;
-    letter-spacing: -0.04em;
-}
-.flex_content_three p{
-    font-size: 14px;
-    margin-top: 12px;
-    color: grey;
-    width: 340px;
-    height: 120px;
-    padding-top: 0.5pc;
-    padding-right: 200px;
-    font-weight: bold;
-    line-height: 25px;
-    font-family: Arial;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.06em;
 }
 .quote{
-    width: 100%;
-    height: 420px;
+    width: 1900px;
+    height: 580px;
     text-align: center;
     background-color: #f4f4f4;
 }
 #p1{
-    font-size: 20px;
-    padding-top: 10pc;
+    font-size: 26px;
+    padding-top: 260px;
     margin: 0;
     color: black;
 }
 #p2{
-    margin: 20px;
+    margin: 22px;
     color: grey;
     font-family: Arial;
-    font-size: 14px;
+    font-size: 18px;
     font-weight: bold;
     padding-bottom: 10pc;
+}
+.pos{
+    position: relative;
+    width: 1900px;
+    height: 990px;
+    text-align: center;
 }
 .glass{
     background: url("https://csci571.com/hw/hw3/images/glasses.png") no-repeat  fixed  -320px -5px;
@@ -167,26 +153,24 @@ body{
 }
 .overlay{
     position: absolute;
-    height: 990px;
     width: 100%;
-    top: 1870px;
+    top: 80px;
     text-align: center;
     vertical-align: middle;
 }
 .top{
-    padding-top: 3pc;
     text-align: center;
     color: black;
 }
 #price{
-    font-size: 23px;
+    margin: 0;
+    font-size: 30px;
     font-weight: bold;
     color: black;
 }
 #afford{
-    margin-top: 10px;
     color: rgb(161,161,161);
-    font-size: 15px;
+    font-size: 18px;
     font-weight: bold;
 }
 .one{
@@ -221,7 +205,7 @@ body{
     background-color: white;
     opacity: 0.9;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 21px;
     letter-spacing: -0.06em;
 }
 .plan_number{
@@ -231,29 +215,17 @@ body{
     height: 520px;
     font-weight: bold;
     color: rgb(119,119,119);
-    font-size: 15px;
+    font-size: 18px;
 }
 .money{
     background-color: white;
-    font-size: 34px;
+    font-size: 37px;
     font-family: Arial;
     padding-top: 20px;
     line-height: 40px;
     margin-bottom: 25px;
     color: black;
     font-weight: normal;
-}
-.buy{
-    background-color: rgb(15, 61, 92);
-    color: white;
-    height: 75px;
-    width: 180px;
-    margin-top: 1pc;
-    margin-bottom: 2pc;
-    border: 0;
-    font-size: 16px;
-    font-family: Montserrat;
-
 }
 .buy1{
     background-color: rgb(15, 61, 92);
@@ -263,12 +235,12 @@ body{
     margin-top: 1pc;
     margin-bottom: 2pc;
     border: 0;
-    font-size: 16px;
-    font-family: Montserrat;
+    font-size: 18px;
     font-weight: bold;
+    font-family: Montserrat;
     position: absolute;
-    top: 690px;
-    left: 218px;
+    top: 675px;
+    left: 410px;
     z-index: 100;
     letter-spacing: 0.1em;
 }
@@ -280,12 +252,12 @@ body{
     margin-top: 1pc;
     margin-bottom: 2pc;
     border: 0;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     font-family: Montserrat;
     position: absolute;
-    top: 690px;
-    left: 652px;
+    top: 675px;
+    left: 845px;
     z-index: 100;
     letter-spacing: 0.1em;
 }
@@ -299,22 +271,22 @@ body{
     margin-bottom: 2pc;
     border: 0;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 18px;
     font-family: Montserrat;
     position: absolute;
-    top: 690px;
-    left: 1085px;
+    top: 675px;
+    left: 1277px;
     z-index: 100;
 }
 .notebook{
     background: url("https://csci571.com/hw/hw3/images/notebook.jpg") no-repeat center;
     height: 600px;
-    background-size: 150%;
+    width: 1900px;
 }
 .free{
     background-color: #083a5e;
-    height: 600px;
-    width: 100pc;
+    height: 700px;
+    width: 1900px;
     opacity: 0.9;
     text-align: center;
     vertical-align: middle;
@@ -322,14 +294,14 @@ body{
     color: white;
 }
 #p3{
-    font-size: 27px;
+    font-size: 34px;
     font-weight: bold;
     font-family: Montserrat;
     color: white;
 }
 #p4{
     margin: -10px;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     font-family: Arial;
     letter-spacing: -0.04em;
@@ -342,27 +314,29 @@ body{
     border: none;
     text-align: center;
     width: 225px;
-    font-size: 17px;
+    font-size: 20px;
+    word-spacing: 0.1em;
     font-family: Montserrat;
     margin-top: 40px;
 }
 .end{
     background-color: rgb(28, 36, 47);
-    height: 20pc;
+    height: 520px;
     text-align: center;
     vertical-align: middle;
     display: table-cell;
-    width: 100pc;
+    width: 1900px;
 }
 .address{
     color: white;
 }
 #p5{
-    font-size: large;
+    font-size: 21px;
     margin: 0;
+    font-weight: bold;
 }
 #p6{
-    font-size: small;
+    font-size: 18px;
     color: #919194;
     margin: 13px;
 }
@@ -373,5 +347,6 @@ body{
     text-decoration: none;
 }
 .photo img{
-    width: 35px;
+    margin-top: 30px;
+    width: 50px;
 }
