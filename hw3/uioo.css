@@ -39,7 +39,7 @@ body{
     position: absolute;
     top: 365px;
     left: 150px;
-    background-color: #073b5e;
+    background-color: #073c60;
 }
 .table{
     margin-left: 60px;
@@ -61,7 +61,7 @@ body{
     font-weight: bold;
     font-style: oblique;
     font-family: Arial;
-    color: #fbdf00;
+    color: #fce003;
     letter-spacing: -0.03em;
     margin-top:22px;
     margin-bottom: 15px;
@@ -80,7 +80,7 @@ body{
     width: 250px;
     margin-top: 1pc;
     padding: 1px 6px;
-    background-color: #fbdf00;
+    background-color: #fce003;
     border: none;
     text-align: center;
     font-family: Montserrat;
@@ -169,14 +169,14 @@ body{
     color: black;
 }
 #afford{
-    color: rgb(161,161,161);
+    color: rgb(155, 155, 155);
     font-size: 18px;
     font-weight: bold;
 }
 .one{
     background: url("https://csci571.com/hw/hw3/images/grid.png");
     display: inline-block;
-    width: 22.33%;
+    width: 25%;
     margin-top: 5pc;
     margin-right: 40px;
     height: 650px;
@@ -184,7 +184,7 @@ body{
 .two{
     background: url("https://csci571.com/hw/hw3/images/grid.png");
     display: inline-block;
-    width: 22.33%;
+    width: 25%;
     margin-top: 5pc;
     margin-right: 40px;
     height: 650px;
@@ -195,7 +195,7 @@ body{
     margin-top: 5pc;
     margin-right: 40px;
     height: 650px;
-    width: 22.33%;
+    width: 25%;
 }
 .plan{
     padding-top: 60px;
@@ -213,7 +213,7 @@ body{
     line-height: 2.6em;
     height: 520px;
     font-weight: bold;
-    color: rgb(119,119,119);
+    color: rgb(114, 113, 113);
     font-size: 18px;
 }
 .money{
@@ -227,7 +227,7 @@ body{
     font-weight: normal;
 }
 .buy1{
-    background-color: rgb(15, 61, 92);
+    background-color: rgb(14, 59, 89);
     color: white;
     height: 75px;
     width: 180px;
@@ -239,12 +239,12 @@ body{
     font-family: Montserrat;
     position: absolute;
     top: 675px;
-    left: 410px;
+    left: 328px;
     z-index: 100;
     letter-spacing: 0.1em;
 }
 .buy2{
-    background-color: rgb(15, 61, 92);
+    background-color: rgb(14, 59, 89);
     color: white;
     height: 75px;
     width: 180px;
@@ -261,7 +261,7 @@ body{
     letter-spacing: 0.1em;
 }
 .buy3{
-    background-color: rgb(15, 61, 92);
+    background-color: rgb(14, 59, 89);
     color: white;
     height: 75px;
     width: 180px;
@@ -274,7 +274,7 @@ body{
     font-family: Montserrat;
     position: absolute;
     top: 675px;
-    left: 1277px;
+    left: 1363px;
     z-index: 100;
 }
 .notebook{
@@ -283,7 +283,7 @@ body{
     width: 1900px;
 }
 .free{
-    background-color: #083a5e;
+    background-color: #073b60;
     height: 600px;
     width: 1900px;
     opacity: 0.9;
@@ -308,7 +308,7 @@ body{
     color: white;
 }
 .button{
-    background-color: #fbdf00;
+    background-color: #f5d902;
     height: 60px;
     border: none;
     text-align: center;
@@ -319,7 +319,7 @@ body{
     margin-top: 40px;
 }
 .end{
-    background-color: rgb(28, 36, 47);
+    background-color: rgb(28, 37, 49);
     height: 520px;
     text-align: center;
     vertical-align: middle;
@@ -336,7 +336,7 @@ body{
 }
 #p6{
     font-size: 18px;
-    color: #919194;
+    color: #8b8b8f;
     margin: 13px;
 }
 .photo a{
