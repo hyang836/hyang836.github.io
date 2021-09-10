@@ -176,7 +176,7 @@ body{
 .one{
     background: url("https://csci571.com/hw/hw3/images/grid.png");
     display: inline-block;
-    width: 390px;
+    width: 22.33%;
     margin-top: 5pc;
     margin-right: 40px;
     height: 650px;
@@ -184,7 +184,7 @@ body{
 .two{
     background: url("https://csci571.com/hw/hw3/images/grid.png");
     display: inline-block;
-    width: 390px;
+    width: 22.33%;
     margin-top: 5pc;
     margin-right: 40px;
     height: 650px;
@@ -195,11 +195,10 @@ body{
     margin-top: 5pc;
     margin-right: 40px;
     height: 650px;
-    width: 390px;
+    width: 22.33%;
 }
 .plan{
     padding-top: 60px;
-    width: 100%;
     line-height: 4;
     vertical-align: middle;
     background-color: white;
