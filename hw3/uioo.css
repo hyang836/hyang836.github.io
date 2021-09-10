@@ -323,11 +323,11 @@ body{
     height: 520px;
     text-align: center;
     vertical-align: middle;
-    display: table-cell;
     width: 1900px;
 }
 .address{
     color: white;
+    padding-top: 190px;
 }
 #p5{
     font-size: 21px;
