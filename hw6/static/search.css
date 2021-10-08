@@ -1,0 +1,546 @@
+#head{
+    position: relative;
+}
+.container{
+    position: absolute;
+    width: 530px;
+    height: 440px;
+    left: 350px;
+    top: 50px;
+}
+#error{
+    background-color: white;
+    width: 530px;
+    height: 40px;
+    left: 350px;
+    position: absolute;
+    top: 510px;
+    font-size: 20px;
+    color: #214aad;
+    text-align: center;
+}
+#error span{
+    line-height: 40px;
+}
+.sky{
+    width: 530px;
+    height: 100px;
+    background-image: url("img/banner.jpg");
+    background-size: 530px 100px;
+    background-repeat: no-repeat;
+    opacity: 0.9;
+}
+.weather{
+    position: absolute;
+    top: 15px;
+    left: 45px;
+    letter-spacing: -0.03em;
+    font-size: 24px;
+    font-weight: bold;
+    color: #4d4848;
+}
+.fill{
+    position: absolute;
+    top: 60px;
+    left: 45px;
+    font-size: 18px;
+    font-weight: bolder;
+    color: #646161;
+    letter-spacing: -0.03em;
+}
+.mid{
+    width: 530px;
+    height: 340px;
+    background-color: white;
+}
+#street{
+    position: absolute;
+    top: 155px;
+    left: 45px;
+    width: 430px;
+    height: 25px;
+    border: 1.5px solid;
+    color: gray;
+}
+#label1{
+    position: absolute;
+    top: 128px;
+    left: 45px;
+    font-weight: bold;
+    color: #214aad;
+}
+#label2{
+    position: absolute;
+    top: 202px;
+    left: 45px;
+    font-weight: bold;
+    color: #214aad;
+}
+#label3{
+    position: absolute;
+    top: 202px;
+    left: 260px;
+    font-weight: bold;
+    color: #214aad;
+}
+#city{
+    position: absolute;
+    top: 230px;
+    left: 45px;
+    width: 180px;
+    height: 25px;
+    border: 1.5px solid;
+    color: gray;
+}
+#state{
+    position: absolute;
+    top: 230px;
+    left: 260px;
+    border: 1.5px solid;
+    color: gray;
+}
+.check{
+    position: absolute;
+    top: 300px;
+    left: 45px;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: -0.04em;
+    color: #214aad;
+}
+#auto{
+    zoom: 130%;
+}
+#sub{
+    position: absolute;
+    top: 360px;
+    left: 45px;
+    width: 100px;
+    height: 50px;
+    background-color: #4444bd;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0px 5px #1c1c67;
+    border: none;
+}
+#cl{
+    position: absolute;
+    top: 360px;
+    left: 147px;
+    width: 100px;
+    height: 50px;
+    background-color: #e2a50d;
+    color: white;
+    font-size: 18px;
+    box-shadow: 0px 5px #e8820e;
+    border: none;
+}
+
+
+#tableOne{
+    position: relative;
+    background-color: white;
+    width: 700px;
+    height: 300px;
+    top: 530px;
+    left: 290px;
+}
+#clear_img{
+    position: absolute;
+    width: 200px;
+    height: 120px;
+    left: 38px;
+    top: 55px;
+}
+#clear_img p{
+    position: absolute;
+    top: 100px;
+    left: 30px;
+    font-size: 18px;
+    color: gray;
+}
+#image{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    left: 20px;
+}
+#address{
+    position: absolute;
+    left: 38px;
+    top: 20px;
+    color: #9a9494;
+    font-size: 22px;
+}
+
+#temperature{
+    display: inline-block;
+    position: absolute;
+    left: 415px;
+    top: 55px;
+    font-size: 100px;
+    font-weight: bold;
+    color: #ada8a8;
+}
+.circle{
+    position: absolute;
+    top: 60px;
+    left: 630px;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 6px solid #ada8a8;
+    border-radius: 16px;
+    vertical-align: super;
+}
+.sixStatus span{
+    display: inline-block;
+    width: 110px;
+    left: 20px;
+    text-align: center;
+}
+.line_one{
+    position: absolute;
+    left: 20px;
+    top: 200px;
+}
+.line_two{
+    position: absolute;
+    left: 20px;
+    top: 230px;
+}
+#h_img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 40px;
+}
+#p_img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 152px;
+}
+#w_img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 260px;
+}
+#v_img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 369px;
+}
+#c_img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 479px;
+}
+#u_img{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    left: 590px;
+}
+.line_three{
+    position: absolute;
+    left: 20px;
+    top: 260px;
+}
+
+
+
+.day_zero{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: #365296;
+    height: 35px;
+}
+.day_zero span{
+    display: inline-block;
+    width: 170px;
+    left: 20px;
+    text-align: center;
+    line-height: 35px;
+}
+#s_two{
+    text-align: center;
+    width: 195px;
+}
+#one_six, #two_six, #three_six, #four_six, #five_six, #six_six, #seven_six, #eight_six, #nine_six, #ten_six, #ele_six, #twe_six, #thirteen_six, #fourteen_six, #fif_six{
+    text-align: right;
+    width: 195px;
+}
+.day_one span, .day_two span, .day_three span, .day_four span, .day_five span, .day_six span, .day_seven span, .day_eight span, .day_nine span, .day_ten span, .day_eleven span, .day_twelve span, .day_thirteen span, .day_fourteen span, .day_fifteen span{
+    display: inline-block;
+    width: 170px;
+    left: 20px;
+    text-align: center;
+    line-height: 50px;
+}
+#tableTwo{
+    position: relative;
+    width: 900px;
+    height: 860px;
+    top: 590px;
+    left: 200px;
+}
+.img_two{
+    width: 30px;
+    height: 30px;
+}
+#test{
+    width: 45px;
+    position: absolute;
+    top: 3px;
+    left: 240px;
+}
+.day_one{
+    position: absolute;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 40px;
+    height: 50px;
+    display: table-cell;
+}
+.day_two{
+    position: absolute;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 95px;
+    height: 50px;
+    display: table-cell;
+}
+.day_three{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 150px;
+    height: 50px;
+}
+.day_four{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 205px;
+    height: 50px;
+}
+.day_five{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 260px;
+    height: 50px;
+}
+.day_six{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 315px;
+    height: 50px;
+}
+.day_seven{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 370px;
+    height: 50px;
+}
+.day_eight{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 425px;
+    height: 50px;
+}
+.day_nine{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 480px;
+    height: 50px;
+}
+.day_ten{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 535px;
+    height: 50px;
+}
+.day_eleven{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 590px;
+    height: 50px;
+}
+.day_twelve{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 645px;
+    height: 50px;
+}
+.day_thirteen{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 700px;
+    height: 50px;
+}
+.day_fourteen{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 755px;
+    height: 50px;
+}
+.day_fifteen{
+    position: absolute;
+    display: table-cell;
+    vertical-align: center;
+    width: 900px;
+    background-color: white;
+    top: 810px;
+    height: 50px;
+}
+
+
+#daily{
+    position: absolute;
+    top: 510px;
+    left: 420px;
+    font-size: 45px;
+    display: none;
+}
+#detail_table{
+    position: absolute;
+    width: 530px;
+    height: 440px;
+    left: 350px;
+    top: 575px;
+    background-image: linear-gradient(to top , #050646, #ebf1ed);
+    display: none;
+}
+#detail_table:hover{
+    box-shadow: 0 3px 5px rgba(0,0,0,0.5);
+}
+#weather_charts{
+    position: absolute;
+    top: 1035px;
+    left: 480px;
+    font-size: 45px;
+    display: none;
+}
+#point_down{
+    position: absolute;
+    top: 1100px;
+    left: 590px;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+#point_up{
+    display: none;
+    position: absolute;
+    top: 1100px;
+    left: 590px;
+    width: 50px;
+    height: 50px;
+    display: none;
+}
+#point_down img{
+    width: 50px;
+    height: 50px;
+}
+#point_up img{
+    width: 50px;
+    height: 50px;
+}
+#time{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 25px;
+}
+#drizzle{
+    position: absolute;
+    left: 20px;
+    top: 70px;
+    font-size: 25px;
+}
+#F{
+    position: absolute;
+    left: 20px;
+    top: 120px;
+    font-size: 35px;
+}
+#side_img{
+    position: absolute;
+    left: 315px;
+    top: 20px;
+    width: 170px;
+    height: 170px;
+}
+#left{
+    top: 200px;
+    width: 318px;
+    position: absolute;
+    height: 190px;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+}
+#right{
+    top: 200px;
+    left: 325px;
+    width: 212px;
+    position: absolute;
+    height: 190px;
+    text-align: left;
+    color: white;
+    font-weight: bold;
+}
+#container_one{
+    top: 1160px;
+    left: 10%;
+    position: absolute;
+    display: none;
+}
+#container_two{
+    top: 1430px;
+    left: 10%;
+    position: absolute;
+    display: none;
+}
