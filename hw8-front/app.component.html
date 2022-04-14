@@ -1,0 +1,714 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Weather Search</title>
+</head>
+<body>
+<!--form-->
+<div class="container rounded" id="tableOne">
+  <form #userForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
+<!--    {{userForm.value | json}} <br>-->
+<!--    {{userModel | json}}-->
+    <div class="head form-group mt-2 form-inline" style="">
+      <div style="font-weight: bold; padding-top: 0.5rem; font-size: 1.2rem">Weather Search</div>
+      &nbsp;&nbsp;&nbsp;
+      <div><img src="../assets/image/sun.png" class="img-fluid" width="20" height="20" alt=""></div>
+    </div>
+    <!--   street    required  -->
+    <div class="form-group row">
+      <label for="Street" class="col-md-3 col-form-label text-md-center" style="font-size: 0.8rem; font-weight: bold">Street<span style="color:#ce1f1f;">*</span></label>
+      <div class="col-md-7 text-md-center">
+        <input type="text" class="form-control" id="Street" required #street="ngModel" pattern="^[a-zA-Z0-9_\s]*$"
+               [class.is-invalid]="(street.invalid && street.touched)" name="street" [disabled]="isdisabled" [(ngModel)]="userModel.street">
+        <div class="text-md-left">
+          <small class="text-danger" [class.d-none]="street.valid || street.untouched || isdisabled">Please enter a valid street</small>
+        </div>
+      </div>
+    </div>
+    <!--   city     required   -->
+    <div class="form-group row">
+      <label for="City" class="col-md-3 col-form-label text-md-center" style="font-size: 0.8rem; font-weight: bold">City<span style="color:#ce1f1f;">*</span></label>
+      <div class="col-md-7 text-md-center">
+        <mat-form-field class="tp-full-width mr-5" [style.fontSize.px]=0 appearance="outline">
+          <input style="height: 1.6rem;" type="text" class="form-control" id="City" required #city="ngModel"
+                 matInput [matAutocomplete]="auto"
+                 [class.is-invalid]="city.invalid && city.touched" name="city" [disabled]="isdisabled" [(ngModel)]="userModel.city" (input)="autoComplete($event)">
+          <mat-autocomplete #auto = "matAutocomplete">
+            <mat-option *ngFor = "let s of sta" [value]="s.value">
+              {{s.display}}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <div class="text-md-left">
+          <small class="text-danger" [class.d-none]="city.valid || city.untouched || isdisabled">Please enter a valid city</small>
+        </div>
+      </div>
+    </div>
+    <!--   select state  required -->
+    <div class="form-group row">
+      <label for="State" class="col-md-3 col-form-label text-md-center" style="font-size: 0.8rem; font-weight: bold">State</label>
+      <div class="col-md-3">
+        <select required class="form-control" id="State" [disabled]="isdisabled" name="state" [(ngModel)]="userModel.state">
+          <option value="" selected>Select your state</option>
+          <option value="Alabama">Alabama</option>
+          <option value="Alaska">Alaska</option>
+          <option value="Arizona">Arizona</option>
+          <option value="Arkansas">Arkansas</option>
+          <option value="California">California</option>
+          <option value="Colorado">Colorado</option>
+          <option value="Connecticut">Connecticut</option>
+          <option value="Delaware">Delaware</option>
+          <option value="District Of Columbia">District Of Columbia</option>
+          <option value="Florida">Florida</option>
+          <option value="Georgia">Georgia</option>
+          <option value="Hawaii">Hawaii</option>
+          <option value="Idaho">Idaho</option>
+          <option value="Illinois">Illinois</option>
+          <option value="Indiana">Indiana</option>
+          <option value="Iowa">Iowa</option>
+          <option value="Kansas">Kansas</option>
+          <option value="Kentucky">Kentucky</option>
+          <option value="Louisiana">Louisiana</option>
+          <option value="Maine">Maine</option>
+          <option value="Maryland">Maryland</option>
+          <option value="Massachusetts">Massachusetts</option>
+          <option value="Michigan">Michigan</option>
+          <option value="Minnesota">Minnesota</option>
+          <option value="Mississippi">Mississippi</option>
+          <option value="Missouri">Missouri</option>
+          <option value="Montana">Montana</option>
+          <option value="Nebraska">Nebraska</option>
+          <option value="Nevada">Nevada</option>
+          <option value="New Hampshire">New Hampshire</option>
+          <option value="New jersey">New jersey</option>
+          <option value="New Mexico">New Mexico</option>
+          <option value="New York">New York</option>
+          <option value="North Carolina">North Carolina</option>
+          <option value="North Dakota">North Dakota</option>
+          <option value="Ohio">Ohio</option>
+          <option value="Oklahoma">Oklahoma</option>
+          <option value="Oregon">Oregon</option>
+          <option value="Pennsylvania">Pennsylvania</option>
+          <option value="Rhode Island">Rhode Island</option>
+          <option value="South Carolina">South Carolina</option>
+          <option value="South Dakota">South Dakota</option>
+          <option value="Tennessee">Tennessee</option>
+          <option value="Texas">Texas</option>
+          <option value="Utah">Utah</option>
+          <option value="Vermont">Vermont</option>
+          <option value="Virginia">Virginia</option>
+          <option value="Washington">Washington</option>
+          <option value="West Virginia">West Virginia</option>
+          <option value="Wisconsin">Wisconsin</option>
+          <option value="Wyoming">Wyoming</option>
+        </select>
+      </div>
+    </div>
+    <!-- hr -->
+    <div class="form-group">
+      <hr class="my-1"/>
+    </div>
+    <!--   auto-detect   -->
+    <div class="form-group row">
+      <div class="col-md-3 col-form-label text-md-right" style="font-size: 0.7rem; font-weight: bold">Auto-detect location<span style="color:#ce1f1f;">*</span></div>
+      <div class="col-md-4">
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" id="gridCheck" value="check" (change)="onChange($event)">
+          <label class="form-check-label" for="gridCheck" style="font-size: 0.8rem; font-weight: bold">
+            Current Location
+          </label>
+        </div>
+      </div>
+    </div>
+    <!--   submit and clear   -->
+    <div class="form-group row">
+      <div class="col-md-1"></div>
+      <button type="submit" class="btn btn-primary my-2 ml-4" [disabled]="street.invalid || city.invalid" id="submit">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="sub bi bi-search" viewBox="0 0 16 16">
+          <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        </svg>
+        Submit</button>
+      <button type="reset" class="btn btn-primary my-2 ml-3" (click)="clear()" style="background-color: white; color: black">
+        <img src="../assets/image/list-nested.svg" class="mr-1" alt="">Clear</button>
+    </div>
+    <div class="form-group row"></div>
+  </form>
+</div>
+<!-- results tag -->
+<div class="container text-center">
+  <button type="button" class="btn my-2 ml-4" [ngClass]="{'btn-primary': res_fav, 'res_col': !res_fav}" (click)="changeToResult()">Results</button>
+  <button type="button" class="btn my-2 ml-3" [ngClass]="{'btn-primary': !res_fav, 'fav_col': res_fav}" (click)="changeToFavorite()">Favorites</button>
+</div>
+<!-- show no records -->
+<div *ngIf="hasNoData && !res_fav" class="mt-5">
+  <div class="container" style="background-color: rgb(255,244,206); height: 3rem; color: rgb(164,135,71);">
+    <div style="padding-top: 0.5rem"><b>Sorry!</b> No records found.</div>
+  </div>
+</div>
+<!-- error block -->
+<div *ngIf="error_block" class="mt-5">
+  <div class="container" style="background-color: rgb(255,214,218); height: 3rem; color: rgb(162,72,76);">
+    <div style="padding-top: 0.5rem"><b>An error occured please try again later.</b></div>
+  </div>
+</div>
+<!-- if has records -->
+<div *ngIf="!hasNoData && !res_fav" class="mt-5">
+  <div class="container">
+    <hr/>
+    <div class="row" style="height: 2rem">
+      <div class="col-3 col-sm-2 text-left">
+        <b>#</b>
+      </div>
+      <div class="col-3 col-sm-4 text-left">
+        <b>City</b>
+      </div>
+      <div class="col-4 col-sm-6 text-left">
+        <b>State</b>
+      </div>
+    </div>
+    <hr/>
+    <div *ngFor="let c of fav_city; let s of fav_state; index as i">
+      <div class="row" style="height: 2rem;">
+        <div class="col-3 col-sm-2 text-left">
+          <b>{{i + 1}}</b>
+        </div>
+        <div class="col-3 col-sm-4 text-left" (click)="showDetailPane(fav_city[i], fav_state[i])" style="color: rgb(0,123,255); text-decoration: underline">
+          <b>{{fav_city[i]}}</b>
+        </div>
+        <div class="col-3 col-sm-4 text-left" (click)="showDetailPane(fav_city[i], fav_state[i])" style="color: rgb(0,123,255); text-decoration: underline">
+          <b>{{fav_state[i]}}</b>
+        </div>
+        <div class="col-3 col-sm-2 text-left">
+          <img (click)="moveFav(i)" src="../assets/image/trash-fill.svg" alt="">
+        </div>
+      </div>
+      <div>
+        <hr/>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- progress bar -->
+<div *ngIf="dataProcess" class="progress bar mt-5" id="progress_bar">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:40%"></div>
+</div>
+
+<!-- title -->
+<div [@one] *ngIf="smallTitle && show_one" class="container text-center mt-5">
+  <span style="font-weight: bold; font-size: 1.2rem">Forecast at {{userModel.street}} {{userModel.city}} {{userModel.state}}</span>
+</div>
+<!-- detail -->
+<div [@one] *ngIf="smallTitle && show_one" class="container text-right mt-4 con">
+  <div><span class="sp" (click)="addOrMoveFav()">
+    <img class="img" *ngIf="!star_fill" src="../assets/image/star.svg" alt="">
+    <svg *ngIf="star_fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgb(251,217,20)" class="img bi bi-star-fill" viewBox="0 0 16 16">
+      <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+    </svg>
+  </span><span class="ml-2" [ngClass]="{'line': un_line}" style="color: gray" (click)="toDetail()">Details</span><img class="ml-1" src="../assets/image/chevron-right.svg" alt=""></div>
+</div>
+<!-- tabs -->
+<div [@one] *ngIf="smallTitle && show_one" class="container">
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active': (tab_one && !tab_two && !tab_three)}" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true" (click)="one()">Day View</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active': (!tab_one && tab_two && !tab_three)}" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false" (click)="two()">Daily Temp. Chart</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" [ngClass]="{'active': (!tab_one && !tab_two && tab_three)}" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false" (click)="three()">Meteogram</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"></div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab"></div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab"></div>
+  </div>
+</div>
+<!--first tag-->
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr style="height: 3px"/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        # &nbsp;&nbsp; Date
+      </div>
+      <div class="col-2 col-sm-2">
+        Status
+      </div>
+      <div class="col-2 col-sm-2">
+        Temp. High(°F)
+      </div>
+      <div class="col-2 col-sm-2">
+        Temp. Low(°F)
+      </div>
+      <div class="col-3 col-sm-3">
+        Wind Speed(mph)
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem;">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        1 &nbsp;&nbsp; <span (click)="showDay(0)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[0]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[0]}}" alt="">&nbsp;{{weather_status[0]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[0]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[0]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[0]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        2 &nbsp;&nbsp; <span (click)="showDay(1)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[1]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[1]}}" alt="">&nbsp;{{weather_status[1]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[1]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[1]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[1]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        3 &nbsp;&nbsp; <span (click)="showDay(2)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[2]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[2]}}" alt="">&nbsp;{{weather_status[2]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[2]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[2]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[2]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        4 &nbsp;&nbsp; <span (click)="showDay(3)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[3]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[3]}}" alt="">&nbsp;{{weather_status[3]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[3]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[3]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[3]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        5 &nbsp;&nbsp; <span (click)="showDay(4)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[4]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[4]}}" alt="">&nbsp;{{weather_status[4]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[4]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[4]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[4]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        6 &nbsp;&nbsp; <span (click)="showDay(5)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[5]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[5]}}" alt="">&nbsp;{{weather_status[5]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[5]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[5]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[5]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        7 &nbsp;&nbsp; <span (click)="showDay(6)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[6]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[6]}}" alt="">&nbsp;{{weather_status[6]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[6]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[6]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[6]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        8 &nbsp;&nbsp; <span (click)="showDay(7)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[7]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[7]}}" alt="">&nbsp;{{weather_status[7]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[7]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[7]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[7]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        9 &nbsp;&nbsp; <span (click)="showDay(8)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[8]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[8]}}" alt="">&nbsp;{{weather_status[8]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[8]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[8]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[8]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        10 &nbsp;&nbsp; <span (click)="showDay(9)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[9]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[9]}}" alt="">&nbsp;{{weather_status[9]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[9]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[9]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[9]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        11 &nbsp;&nbsp; <span (click)="showDay(10)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[10]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[10]}}" alt="">&nbsp;{{weather_status[10]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[10]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[10]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[10]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        12 &nbsp;&nbsp; <span (click)="showDay(11)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[11]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[11]}}" alt="">&nbsp;{{weather_status[11]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[11]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[11]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[11]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        13 &nbsp;&nbsp; <span (click)="showDay(12)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[12]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[12]}}" alt="">&nbsp;{{weather_status[12]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[12]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[12]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[12]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        14 &nbsp;&nbsp; <span (click)="showDay(13)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[13]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[13]}}" alt="">&nbsp;{{weather_status[13]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[13]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[13]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[13]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container">
+  <div style="font-weight: bold; font-size: 0.8rem">
+    <div class="row">
+      <div class="col-3 col-sm-3">
+        15 &nbsp;&nbsp; <span (click)="showDay(14)" style="color: rgb(0,123,255); text-decoration: underline">{{current_date[14]}}</span>
+      </div>
+      <div class="col-2 col-sm-2">
+        <img class="display-img" src="{{weather_img[14]}}" alt="">&nbsp;{{weather_status[14]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_max[14]}}
+      </div>
+      <div class="col-2 col-sm-2">
+        {{tem_min[14]}}
+      </div>
+      <div class="col-3 col-sm-3">
+        {{wind_speed[14]}}
+      </div>
+    </div>
+  </div>
+</div>
+<div [@one] *ngIf="smallTitle && firstTag && show_one" class="container"><hr/></div>
+<!-- first tag/detail pane/title -->
+<div [@two] *ngIf="detailPane && !firstTag && !smallTitle && show_two" class="container mt-5">
+  <div class="row">
+    <div class="col-4 col-sm-3 text-left con" (click)="toList()">
+      <div class="become_dark" style="display: inline-block; border: 1px black solid" [ngClass]="{'become_dark': bec_dark}" (mouseover)="dark()" (mouseleave)="noDark()"><img class="img ml-1" src="../assets/image/chevron-left.svg" alt=""><span class="mr-2" style="color: gray">List</span></div>
+    </div>
+    <div class="col-4 col-sm-8 text-center" style="font-size: 1.2rem; font-weight: bold">
+      {{current_date[chooseDay]}}
+    </div>
+    <div class="col-4 col-sm-1 text-right">
+      <div style="height: 2rem">
+        <a class="twitter-share-button"
+           href="https://twitter.com/intent/tweet?text=The Temperature in {{userModel.city}}, {{userModel.state}} on {{current_date[chooseDay]}} is {{tem_apparent[chooseDay]}} °F. The weather conditions are {{weather_status[chooseDay]}}&hashtags={{twitterHashtags}}">
+          <img style="display: inline" src="../assets/image/tweet_blue.svg" alt=""></a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- first tag/detail pane/pane -->
+<div [@two] *ngIf="detailPane && !firstTag && !smallTitle && show_two" class="container mt-3">
+    <div class="row" style="background-color: rgb(240,240,240); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Status
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{weather_status[chooseDay]}}
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(251,251,251); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Max Temperature
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{tem_max[chooseDay]}} °F
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(240,240,240); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Min Temperature
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{tem_min[chooseDay]}} °F
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(251,251,251); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Apparent Temperature
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{tem_apparent[chooseDay]}} °F
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(240,240,240); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Sun Rise Time
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{sun_rise[chooseDay]}}
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(251,251,251); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Sun Set Time
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{sun_set[chooseDay]}}
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(240,240,240); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Humidity
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{humidity[chooseDay]}} %
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(251,251,251); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Wind Speed
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{wind_speed[chooseDay]}} mph
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(240,240,240); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Visibility
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{visibility[chooseDay]}} mi
+      </div>
+    </div>
+    <div class="row" style="background-color: rgb(251,251,251); height: 3rem;">
+      <div class="col-7 col-sm-4 text-left" style="font-weight: bold; margin-top: 0.6rem">
+        Cloud Cover
+      </div>
+      <div class="col-5 col-sm-8 text-left" style="margin-top: 0.6rem">
+        {{cloud_cover[chooseDay]}} %
+      </div>
+    </div>
+</div>
+<!-- first tag/detail pane/map -->
+<div [@two] *ngIf="detailPane && !firstTag && !smallTitle && show_two" class="container mt-1">
+  <agm-map [zoom]="16" [latitude]="lat" [longitude]="lng">
+    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  </agm-map>
+</div>
+<!-- second tag/chart -->
+<highcharts-chart
+  *ngIf="isHighcharts && secondTag"
+  [Highcharts]="Highcharts"
+  [options]="chartOptions"
+   class="container" id="chart_one" style="height: 400px; display: block;"
+></highcharts-chart>
+<!-- third tag/chart -->
+<highcharts-chart
+  *ngIf="third_Tag"
+  class="container" id="chart_two" style="height: 600px; display: block;"
+></highcharts-chart>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
